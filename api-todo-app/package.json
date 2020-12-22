@@ -1,0 +1,24 @@
+{
+  "name": "api-todo-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "prod-start": "pm2 start server.js --name api-todo-app",
+    "prod-stop": "pm2 stop api-todo-app",
+    "prod-restart": "pm2 restart api-todo-app",
+    "prod-delete": "pm2 delete api-todo-app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.8",
+    "pm2": "^4.5.1"
+  }
+}
