@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './todo.css';
+
 import PageHeader from '../../components/pageHeader';
 import TodoForm from '../../components/todoForm';
 import TodoList from '../../components/todoList';

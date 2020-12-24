@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './about.css';
+
 import PageHeader from '../../components/pageHeader';
 
 const About = (props) => (
