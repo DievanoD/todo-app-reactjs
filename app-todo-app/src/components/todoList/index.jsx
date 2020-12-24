@@ -2,10 +2,33 @@ import React from 'react';
 
 import './todoList.css';
 
-const TodoList = (props) => (
-    <div>
-        <h1>List</h1>
-    </div>
-);
+import IconButton from '../iconButton';
+
+const TodoList = (props) => {
+    const renderRows = () => {
+        const list = props.list || [];
+        return list.map(todo => (
+            <tr key={todo._id}>
+                <td>{todo.description}</td>
+                <td>
+                    <IconButton styleclass='danger' icon='trash-o' onClick={() => props.handleRemove(todo)} />
+                </td>
+            </tr>
+        ));
+    }
+    return (
+        <table className="table">
+            <thead>
+                <tr>
+                    <th>Descrição</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {renderRows()}
+            </tbody>
+        </table>
+    )
+}
 
 export default TodoList;
