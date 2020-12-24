@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './menu.css';
+
 const Menu = (props) => (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <a className="navbar-brand" href="/">
