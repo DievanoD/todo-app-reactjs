@@ -6,7 +6,7 @@ import './app.css';
 import Menu from '../components/menu';
 import Routes from '../routes';
 
-const Main = () => {
+const App = () => {
   return (
     <div className="container">
       <Menu />
@@ -15,4 +15,4 @@ const Main = () => {
   );
 }
 
-export default Main;
+export default App;

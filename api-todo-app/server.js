@@ -12,7 +12,7 @@ server.use(bodyParser.urlencoded({ extended: true }));
 server.use(bodyParser.json());
 server.use(allowCors);
 
-server.use('/', indexRoute);
+server.use('/api', indexRoute);
 
 server.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
