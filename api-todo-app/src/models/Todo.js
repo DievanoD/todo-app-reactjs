@@ -11,11 +11,9 @@ const TodoSchema = mongoose.Schema({
         type: Boolean,
         required: true,
         default: false
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now()
     }
+}, {
+    timestamps: {}
 });
 
 const Todo = mongoose.model('Todo', TodoSchema);
