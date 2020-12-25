@@ -14,6 +14,8 @@ const TodoForm = (props) => (
 
             <Grid cols='12 3 2'>
                 <IconButton styleclass='primary' icon='plus' onClick={props.handleAdd} />
+                <IconButton styleclass='info' icon='search' onClick={props.handleSearch} />
+                <IconButton styleclass='default' icon='close' onClick={props.handleClear} />
             </Grid>
         </div>
     </div>

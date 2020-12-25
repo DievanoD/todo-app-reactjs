@@ -4,7 +4,8 @@ module.exports = {
 
     async index(req, res) {
         try {
-            const response = await Todo.find();
+            const { search = '' } = req.query;
+            const response = await Todo.find({ description: { "$regex": search, "$options": "i" } }).sort({ createdAt: -1 });
             return res.send(response);
         } catch (err) {
             console.error(err);
