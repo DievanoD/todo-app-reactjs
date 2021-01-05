@@ -1,8 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import './todoList.css';
 
 import IconButton from '../iconButton';
+import { markAsDone, markAsPending, remove } from "../../reducers/todo/todoActions";
 
 const TodoList = (props) => {
     const renderRows = () => {
@@ -11,9 +14,9 @@ const TodoList = (props) => {
             <tr key={todo._id}>
                 <td className={todo.done ? 'markedAsDone' : ''}>{todo.description}</td>
                 <td className="d-flex">
-                    <IconButton styleclass='success' icon='check' hide={todo.done} onClick={() => props.handleMarkAsDone(todo)} />
-                    <IconButton styleclass='warning' icon='undo' hide={!todo.done} onClick={() => props.handleMarkAsPending(todo)} />
-                    <IconButton styleclass='danger' icon='trash-o' hide={!todo.done} onClick={() => props.handleRemove(todo)} />
+                    <IconButton styleclass='success' icon='check' hide={todo.done} onClick={() => props.markAsDone(todo)} />
+                    <IconButton styleclass='warning' icon='undo' hide={!todo.done} onClick={() => props.markAsPending(todo)} />
+                    <IconButton styleclass='danger' icon='trash-o' hide={!todo.done} onClick={() => props.remove(todo)} />
                 </td>
             </tr>
         ));
@@ -33,4 +36,7 @@ const TodoList = (props) => {
     )
 }
 
-export default TodoList;
+const mapStateToProps = (state) => ({ list: state.todo.list })
+const mapDispatchToProps = (dispatch) => bindActionCreators({ markAsDone, markAsPending, remove }, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
